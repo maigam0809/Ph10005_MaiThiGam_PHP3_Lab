@@ -12,4 +12,10 @@ class StudentController extends Controller
             'students'=>$listStudent,
         ]);
     }
+
+    public function delete($id){
+        $result = Student::find($id);
+        $result->delete();
+        return redirect('')->with('message',"Xoá Thành công");
+    }
 }

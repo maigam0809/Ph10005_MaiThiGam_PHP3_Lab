@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\DB;
 
 Route::get('hello','HelloController@index');
 Route::get('/','StudentController@index');
+Route::post('delete/{id}','StudentController@delete');

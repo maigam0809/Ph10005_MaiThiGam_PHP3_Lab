@@ -64,11 +64,12 @@
                                     <p>Xác nhận ?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        {{-- <form action="{{route('admin.users.delete',['user'=> $item->id])}}" method="post">
-                                            @csrf --}}
+                                        <form action="delete/{{$item->id}}" method="post">
+                                        {{-- <form action="{{route('delete/',['student'=> $item->id])}}" method="post"> --}}
+                                            @csrf
                                             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                                             <button type="submit" class="btn btn-primary">Yes</button>
-                                        {{-- </form> --}}
+                                        </form>
                                     </div>
                                 </div>
                                 </div>
