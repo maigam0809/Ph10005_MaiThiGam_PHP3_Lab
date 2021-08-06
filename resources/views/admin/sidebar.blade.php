@@ -17,16 +17,14 @@
             </li>
             {{-- students --}}
             <li>
-                {{-- {{route('admin.students')}} --}}
-                <a href=""><i class="fa fa-bar-chart-o fa-fw"></i> students<span class="fa arrow"></span></a>
+                <a href="{{ route('students.index') }}"><i class="fa fa-bar-chart-o fa-fw"></i> students<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        {{-- {{route('admin.students.index')}} --}}
-                        <a href="">List students</a>
+                        <a href="{{ route('students.index') }}">List students</a>
                     </li>
                     <li>
-                        {{-- {{route('admin.students.create')}} --}}
-                        <a href="">Add students</a>
+
+                        <a href="{{ route('students.add') }}">Add students</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

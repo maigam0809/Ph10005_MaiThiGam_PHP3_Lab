@@ -42,11 +42,13 @@
                             {{$item->student_name}}
                         </td>
                         <td>{{$item->address}}</td>
-                        <td>{{$item->avatar}}</td>
+                        <td>
+                            {{-- {{$item->avatar}} --}}
+                            <img src="{{$item->avatar}}" width="100px;">
+                        </td>
                         <td>{{$item->description}}</td>
                         <td class="center" style="display:flex;">
-                            {{-- {{route('admin.users.edit',['user'=>$item->id])}} --}}
-                            <a class="btn btn-warning" href="">
+                            <a class="btn btn-warning" href=" {{route('students.edit',['student'=>$item->id])}}">
                                 <i class="fa fa-pencil fa-fw"></i>
                             </a>
                             <a class="btn btn-danger" style="margin-left: 5px;"  data-toggle="modal" data-target="#confirm_delete_{{$item->id}}">
@@ -64,8 +66,7 @@
                                     <p>Xác nhận ?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <form action="delete/{{$item->id}}" method="post">
-                                        {{-- <form action="{{route('delete/',['student'=> $item->id])}}" method="post"> --}}
+                                        <form action="{{route('students.delete',['student'=> $item->id])}}" method="post">
                                             @csrf
                                             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                                             <button type="submit" class="btn btn-primary">Yes</button>
