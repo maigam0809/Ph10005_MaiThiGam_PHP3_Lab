@@ -8,23 +8,21 @@ use DB;
 
 class StudentSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run(){
+   
+    public function run()
+    {
         $faker = FakerFactory::create();
         for($i = 0; $i < 20; $i++){
             $data =[
-                'student_name' => $faker->text(11),
+                'name' => $faker->name,
+                'email' => $faker->email,
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
                 'address' => $faker->address,
-                'avatar' => $faker->image,
-                'description' => $faker->text(200),
+                'address' => $faker->address,
 
             ];
-            DB::table('students')->insert($data);
         }
 
+        DB::table('users')->insert($data);
     }
 }

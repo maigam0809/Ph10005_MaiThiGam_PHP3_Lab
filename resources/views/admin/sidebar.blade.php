@@ -29,43 +29,18 @@
                 </ul>
                 <!-- /.nav-second-level -->
             </li>
-            {{-- Products --}}
-{{--
+            {{-- Users --}}
             <li>
-                <a href="{{route('admin.products.index')}}"><i class="fa fa-cube fa-fw"></i> Products<span class="fa arrow"></span></a>
+                <a href="{{route('users.index')}}"><i class="fa fa-users fa-fw"></i>Users<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{route('admin.products.index')}}">List Products</a>
+                        <a href="{{route('users.index')}}">List Users</a>
                     </li>
                     <li>
-                        <a href="{{route('admin.products.create')}}">Add Products</a>
+                        <a href="{{route('users.add')}}">Add Users</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
-            </li> --}}
-
-            {{-- <li>
-                <a href="{{route('admin.invoices.index')}}"><i class="fa fa-shopping-cart fa-fw"></i> Invoices<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{route('admin.invoices.index')}}">List Invoices</a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.invoices.create')}}">Add Invoices</a>
-                    </li>
-                </ul>
-            </li> --}}
-            {{-- <li>
-                <a href="{{route('admin.users.create')}}"><i class="fa fa-users fa-fw"></i>Users<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{route('admin.users.index')}}">List Users</a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.users.create')}}">Add Users</a>
-                    </li>
-                </ul>
-            </li> --}}
+            </li>
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

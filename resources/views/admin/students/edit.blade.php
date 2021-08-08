@@ -20,13 +20,21 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{ route('students.update',['student'=>$student->id]) }}">
+                <form method="post" action="{{ route('students.update',['student'=>$student->id]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="name" class="form-label">Student Name</label>
                         <input type="text" name="student_name" class="form-control" value="{{$student->student_name}}" id="name">
                         @error('student_name')
                             <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="image1" class="form-label">Image</label>
+                        <input type="file" class="form-control" name="image1" id="image1">
+                        <img src="{{ $student->avatar }}" alt=""  width="200px;">
+                        @error('image1')
+                        <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="form-group">

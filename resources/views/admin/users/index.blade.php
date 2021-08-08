@@ -1,14 +1,14 @@
 @extends('admin.layout')
 
-@section('title','List students')
+@section('title','List users')
 @section('contents')
-@if(!empty($students))
+@if(!empty($users))
 
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Students
+                <h1 class="page-header">users
                     <small>List</small>
                 </h1>
             </div>
@@ -27,27 +27,41 @@
                     <tr align="center">
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
                         <th>Address</th>
-                        <th>Avatar</th>
-                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($students as $item)
+                    @foreach ($users as $item)
                     <tr class="odd gradeX text-capitalize" align="center">
-                        <td>{{$item->id}}</td>
                         <td>
-                            {{$item->student_name}}
+                            {{$item->id}}
                         </td>
-                        <td>{{$item->address}}</td>
                         <td>
-                            <img src="{{$item->avatar}}" width="100px;">
+                            {{$item->name}}
                         </td>
-                        <td>{{$item->description}}</td>
+                        <td>
+                            {{$item->email}}
+                        </td>
+                        <td>
+                            {{$item->gender == config('common.users.gender.male') ? 'Nam' : 'Nữ'}}
+                        </td>
+                        <td>
+                            {{$item->address}}
+                        </td>
+                        <td>
+                            <img src="{{ $item->image }}" alt="" width="100px;">
+                        </td>
+                        <td>
+                            {{$item->role == config('common.users.role.users') ? 'Users' : 'Admin'}}
+                        </td>
                         <td class="center" style="display:flex;">
-                            <a class="btn btn-warning" href=" {{route('students.edit',['student'=>$item->id])}}">
+                            <a class="btn btn-warning" href=" {{route('users.edit',['user'=>$item->id])}}">
                                 <i class="fa fa-pencil fa-fw"></i>
                             </a>
                             <a class="btn btn-danger" style="margin-left: 5px;"  data-toggle="modal" data-target="#confirm_delete_{{$item->id}}">
@@ -65,7 +79,7 @@
                                     <p>Xác nhận ?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <form action="{{route('students.delete',['student'=> $item->id])}}" method="post">
+                                        <form action="{{route('users.delete',['user'=> $item->id])}}" method="post">
                                             @csrf
                                             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                                             <button type="submit" class="btn btn-primary">Yes</button>

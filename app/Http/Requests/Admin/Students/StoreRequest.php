@@ -21,7 +21,6 @@ class StoreRequest extends FormRequest
             'address' =>'required',
             'description' =>'required',
             'avatar' => 'required|mimes:jpeg,png,jpg|max:2048',
-            // ,gif,svg
         ];
 
     }
@@ -30,8 +29,8 @@ class StoreRequest extends FormRequest
             'required' => ':attribute không được để trống',
             'min:3' => ':atribute tối thiểu gồm 3 ký tự',
             'max:100' => ':atribute tối đa gồm 100 ký tự',
-            'max:2048' => ':atribute có size nhỏ hơn 2MB',
             'unique' => ':atribute đã tồn tại.',
+            'max:2048' => ':atribute có size nhỏ hơn 2MB',
             'mimes'=>':attribute phải là ảnh dạng jpeg,png'
         ];
     }

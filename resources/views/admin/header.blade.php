@@ -23,9 +23,12 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                {{-- {{ route('auth.logout') }} --}}
-                <li><a href=""><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                @auth
+                <li>
+                    <a href="{{ route('auth.logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                
                 </li>
+                @endauth
             </ul>
             <!-- /.dropdown-user -->
         </li>

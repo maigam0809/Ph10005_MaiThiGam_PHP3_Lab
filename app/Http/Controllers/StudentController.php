@@ -10,7 +10,7 @@ use App\Models\Student;
 class StudentController extends Controller {
 
     public function index(){
-        $listStudent = Student::orderBy('id','DESC')->limit(5)->get();
+        $listStudent = Student::orderBy('id','DESC')->limit(30)->get();
         return view('admin/students/index',[
             'students'=>$listStudent,
         ]);
@@ -27,40 +27,11 @@ class StudentController extends Controller {
         // $request->avatar->move(public_path('/images'), $imageName);
         // $path = $request->file('avatar')->store('avatars');
 
-        // return $path;
-
-
         // c1 Lưu vào storage
-        // chỗ này sửa là public chứ anh đúng chư ban uk
         $path = $request->file('avatar')->store('public/avatars');
-        // cho nay dung thu thuat ty. them storage vao link
         $path = str_replace('public','storage',$path);
 
-        // dd($path);
-        // return $path;
-
-        // cho a xem lỗi gì
-
-        // dd($path);
-        // dd($imageName);
-        // dd($a);
-        // if($request->hasFile('avatar')){
-        //     $file = $request->file('avatar');
-        //     $duoi = $file->getClientOriginalExtension();
-        //     $name = $file->getClientOriginalName();
-        //     $avatar = Str::random(4)."_". $name;
-        //     while(file_exists("images/".$avatar)){
-        //         $avatar = Str::random(4)."_". $name;
-        //     }
-        //     $file->move("images/",$avatar);
-        //     $request->avatar = $avatar;
-        //     // dd($Hinh);
-        // }
-
-
         $data = $request->except('_token');
-
-        // change avatar =$path
         $data['avatar'] = $path;
         $result = Student::create($data);
         return redirect('')->with('message',"Thêm Thành công");
@@ -73,7 +44,14 @@ class StudentController extends Controller {
     }
 
     public function update(UpdateRequest $request,Student $student){
+        
         $data = request()->except('_token');
+        if($request->hasFile('image1')) { 
+            $path = $request->file('image1')->store('public/avatars');
+            $path = str_replace('public','storage',$path);
+            $data['avatar'] = $path;
+        }
+
         $student->update($data);
         return redirect('')->with('message','Sửa thành công');
     }

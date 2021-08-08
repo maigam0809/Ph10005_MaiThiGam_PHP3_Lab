@@ -14,6 +14,7 @@ class UpdateRequest extends FormRequest
             'student_name' =>'required|min:3|max:100',
             'address' =>'required',
             'description' =>'required',
+            'image1' => 'image|max:2048',
         ];
 
     }
@@ -23,6 +24,8 @@ class UpdateRequest extends FormRequest
             'min:3' => ':atribute tối thiểu gồm 3 ký tự',
             'max' => ':atribute tối đa gồm 100 ký tự',
             'unique' => ':atribute đã tồn tại.',
+            'image' => ':atribute không phải là image.',
+            'max:2048' => ':atribute phải có kích thước nhỏ hơn 2MB.',
         ];
     }
 
@@ -31,6 +34,7 @@ class UpdateRequest extends FormRequest
             'student_name' =>"Họ và tên ",
             'address' =>"Địa chỉ ",
             'desciption' =>"Mô tả",
+            'image1' =>"Hình ảnh",
         ];
     }
 }

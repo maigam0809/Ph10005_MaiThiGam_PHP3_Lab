@@ -35,13 +35,12 @@
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-        {{-- @if(auth()->check() === true)
-            @endif --}}
+        
+        @auth
         @include('admin/header')
-
-
+        
         <!-- Page Content -->
+        @endauth
         @yield('contents')
         <!-- /#page-wrapper -->
         {{-- @include('footer') --}}
