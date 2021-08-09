@@ -12,8 +12,13 @@ class Student extends Model
         'student_name',
         'address',
         'avatar',
-        'description'
+        'description',
+        'subject_id',
     ];
     protected $table = 'students';
     protected $primariKey = 'id';
+
+    public function subjects(){
+        return $this->belongsTo(Subject::class,'subject_id','id');
+   }
 }

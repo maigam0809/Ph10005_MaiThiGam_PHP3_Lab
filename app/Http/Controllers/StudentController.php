@@ -7,17 +7,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 use App\Models\Student;
+use App\Models\Subject;
 class StudentController extends Controller {
 
     public function index(){
-        $listStudent = Student::orderBy('id','DESC')->limit(30)->get();
+        $listStudent = Student::orderBy('id','DESC')->limit(20)->get();
+        // dd($listStudent);
         return view('admin/students/index',[
             'students'=>$listStudent,
         ]);
     }
 
     public function create(){
-        return view('/admin/students/create');
+        $listSubject = Subject::all();
+        return view('/admin/students/create',[
+            'subjects' => $listSubject
+        ]);
     }
 
     public function store(StoreRequest $request){
@@ -38,8 +43,10 @@ class StudentController extends Controller {
     }
 
     public function edit(Student $student){
+        $listSubject = Subject::all();
         return view('admin/students/edit',[
-            'student' =>$student
+            'student' =>$student,
+            'subjects' => $listSubject
         ]);
     }
 

@@ -30,6 +30,16 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="subject_id" class="form-label">Môn học</label>
+                        <select name="subject_id" id="subject_id" class="form-control" >
+                            @foreach ($subjects as $item)
+                            <option
+                            {{$student->subject_id == $item->id ? 'selected' : ''}}
+                            value="{{$item->id }}" class="form-control">{{$item->subject_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="image1" class="form-label">Image</label>
                         <input type="file" class="form-control" name="image1" id="image1">
                         <img src="{{ $student->avatar }}" alt=""  width="200px;">

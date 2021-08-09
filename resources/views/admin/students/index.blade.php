@@ -29,6 +29,7 @@
                         <th>Name</th>
                         <th>Address</th>
                         <th>Avatar</th>
+                        <th>Subject Name</th>
                         <th>Description</th>
                         <th>Action</th>
                     </tr>
@@ -45,6 +46,7 @@
                         <td>
                             <img src="{{$item->avatar}}" width="100px;">
                         </td>
+                        <td>{{$item->subjects->subject_name}}</td>
                         <td>{{$item->description}}</td>
                         <td class="center" style="display:flex;">
                             <a class="btn btn-warning" href=" {{route('students.edit',['student'=>$item->id])}}">

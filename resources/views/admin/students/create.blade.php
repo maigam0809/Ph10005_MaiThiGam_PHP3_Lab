@@ -30,6 +30,18 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="subject_id" class="form-label">Chọn môn học</label>
+                        <select name="subject_id" id="subject_id" class="form-control" >
+                            @foreach ($subjects as $item)
+                            <option
+                            @if (old('subject_id') == $item->id )
+                                {{"selected"}}
+                            @endif
+                            value="{{$item->id }}" class="form-control">{{$item->subject_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="address" class="form-label">Address</label>
                         <input type="text" name="address" class="form-control" value="{{old('address')}}" id="address">
                         @error('address')
